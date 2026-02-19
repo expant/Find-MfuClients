@@ -2,10 +2,11 @@
 # Config
 # ----------------------------
 
-$printerIP   = "192.168.200.46"
-$output      = "result.csv"
-$subnets     = @("192.168.100.", "192.168.101.")
-$maxParallel = 30
+# Дефолтные значения
+$printerIP   = "192.168.200.1" # IP принтера
+$output      = "result.csv" # Путь к результирующему CSV-файлу
+$subnets     = @("192.168.100.", "192.168.101.") # Подсети
+$maxParallel = 30 # Максимальное количество одновременных проверок
 
 "Computer,Printer,Port" | Out-File $output -Encoding ascii
 
