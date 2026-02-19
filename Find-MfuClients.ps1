@@ -77,13 +77,7 @@ foreach ($ip in $ips) {
 
             foreach ($printer in $printers) {
 
-                # 1️⃣ Проверка PortName
-                if ($printer.PortName -like "*$printerIP*") {
-                    Write-Result $pc $printer.Name $printer.PortName
-                    return "FOUND:$pc"
-                }
-
-                # 2️⃣ Проверка TCPIPPrinterPort
+                # Проверка TCPIPPrinterPort
                 if ($ports) {
                     $portMatch = $ports | Where-Object {
                         $_.Name -eq $printer.PortName -and
@@ -96,7 +90,7 @@ foreach ($ip in $ips) {
                     }
                 }
 
-                # 3️⃣ Проверка через реестр
+                # Проверка через реестр
                 if ($monitors) {
 
                     foreach ($monitor in $monitors) {
